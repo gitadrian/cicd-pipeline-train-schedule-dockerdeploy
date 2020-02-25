@@ -16,7 +16,7 @@ pipeline {
 			sh 'node --version'
 				
 				script{
-					docker.withRegistry(credentialsId:'docker_hub_login'){
+					docker.withRegistry('','docker_hub_login'){
 					
 					}
 				}
