@@ -14,9 +14,9 @@ pipeline {
 			}
 			steps{
 				agent {
-					dockerfile {
+					dockerfile 
 						true
-						}
+						
 					}
 			}
 		}
