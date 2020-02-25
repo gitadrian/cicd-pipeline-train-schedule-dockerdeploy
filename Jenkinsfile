@@ -17,7 +17,7 @@ pipeline {
 				
 				script{
 					docker.withRegistry('https://registry.hub.docker.com','docker_hub_login'){
-					echo '$(docker.Image.id)'
+					echo $(docker.Image.id)
 					}
 				}
 			}
