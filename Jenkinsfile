@@ -9,9 +9,7 @@ pipeline {
             }
         }
 		stage('Build Docker image'){
-			when{
-				branch 'master'
-			}
+			
 			agent { dockerfile true }
 			steps{
 				
