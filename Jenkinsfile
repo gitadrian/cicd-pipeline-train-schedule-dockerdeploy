@@ -12,7 +12,9 @@ pipeline {
 		stage('Build Docker image'){
 		
 			agent { dockerfile true }
-			steps{}
+			steps{
+			sh 'node --version'
+			}
 		}
     }
 }
