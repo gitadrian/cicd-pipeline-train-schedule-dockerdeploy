@@ -14,6 +14,12 @@ pipeline {
 			agent { dockerfile true }
 			steps{
 			sh 'node --version'
+				
+				script{
+					docker.withRegistry(credentialsId:'docker_hub_login'){
+					
+					}
+				}
 			}
 		}
     }
