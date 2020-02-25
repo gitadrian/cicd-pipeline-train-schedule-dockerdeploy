@@ -1,5 +1,5 @@
 pipeline {
-    
+    agent any
     stages {
         stage('Build') {
             steps {
@@ -12,7 +12,10 @@ pipeline {
 			when{
 				branch 'master'
 			}
-			agent { dockerfile true }
+			steps{
+				agent { dockerfile true }
+			}
+			
 		}
     }
 }
