@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Build') {
 		agent any
@@ -16,9 +16,15 @@ pipeline {
 			sh 'node --version'
 				
 				script{
+					 app = docker.build("acy92docker/train-schedule")
+                    		        app.inside {
+                       				 sh 'echo $(curl localhost:8080)'
+                   			 }
 					docker.withRegistry('https://registry.hub.docker.com','docker_hub_login'){
-					echo 'docker.Image.id'
+						app.push("${env.BUILD_NUMBER}")
+                       				 app.push("latest")
 					}
+					
 				}
 			}
 		}
