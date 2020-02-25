@@ -12,13 +12,7 @@ pipeline {
 			when{
 				branch 'master'
 			}
-			steps{
-				agent {
-					dockerfile 
-						true
-						
-					}
-			}
+			agent { dockerfile true }
 		}
     }
 }
