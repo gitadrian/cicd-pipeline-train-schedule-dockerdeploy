@@ -10,12 +10,12 @@ pipeline {
         }
 		stage('Build Docker image'){
 			
-			agent { dockerfile true }
+			agent any
 			steps{
 				
 				echo 'Running build automation'
 			}
-			
+			agent { dockerfile true }
 		}
     }
 }
