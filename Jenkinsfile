@@ -9,28 +9,21 @@ pipeline {
             }
         }
 		stage('Build and push Docker image'){
-		
-			
 			steps{
-			
-				
 				script{
 					 app = docker.build("acy92docker/train-schedule")
-                    		        app.inside {
-                       				 sh 'echo $(curl localhost:8080)'
-                   			 }
+                     app.inside {
+						 sh 'echo $(curl localhost:8080)'
+						 }
 					docker.withRegistry('https://registry.hub.docker.com','docker_hub_login'){
 						app.push("${env.BUILD_NUMBER}")
-                       				 app.push("latest")
+                       	app.push("latest")
 					}
 					
 				}
 			}
 		}
-		
 		stage('deploy'){
-		
-			
 			steps{
 			 input 'Deploy to Production?'
                 milestone(1)
