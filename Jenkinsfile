@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Build') {
             steps {
@@ -12,9 +12,9 @@ pipeline {
 			when{
 				branch 'master'
 			}
-			
+			agent { dockerfile true }
 			steps{
-				agent { dockerfile true }
+				
 				echo 'Running build automation'
 			}
 			
