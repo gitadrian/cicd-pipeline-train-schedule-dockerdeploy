@@ -12,7 +12,7 @@ pipeline {
 		
 			
 			steps{
-			sh 'node --version'
+			
 				
 				script{
 					 app = docker.build("acy92docker/train-schedule")
