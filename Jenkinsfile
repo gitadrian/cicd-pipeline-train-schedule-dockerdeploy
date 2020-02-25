@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    
     stages {
         stage('Build') {
             steps {
@@ -8,5 +8,18 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
+		stage('Build Docker image'){
+			when{
+				branch 'master'
+			}
+			steps{
+				agent {
+					dockerfile {
+						registryUrl 'https://registry.hub.docker.com'
+						registryCredentialsId 'docker_hub_login'
+						}
+					}
+			}
+		}
     }
 }
