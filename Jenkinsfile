@@ -14,7 +14,7 @@ pipeline {
 			}
 			agent { dockerfile true }
 			steps{
-				
+				echo 'Running build automation'
 			}
 			
 		}
