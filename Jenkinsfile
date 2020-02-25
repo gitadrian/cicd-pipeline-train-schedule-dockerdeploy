@@ -15,8 +15,7 @@ pipeline {
 			steps{
 				agent {
 					dockerfile {
-						registryUrl 'https://registry.hub.docker.com'
-						registryCredentialsId 'docker_hub_login'
+						true
 						}
 					}
 			}
